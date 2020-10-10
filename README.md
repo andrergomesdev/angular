@@ -63,5 +63,62 @@ node_modules -> pasta onde as dependências estão instaladas.
 12. Deployment  
 13. Animações e Testing  
 
+## TypeScript
+- Superset do javascript
+- Não executa no browser, precisa ser compilado para javascript.
 
+## Bootstrap
+- Será utilizado no projeto.
+
+```cmd
+npm install --save bootstrap@3
+```
+
+- Incluir configuração abaixo no arquivo **angular.json**:
+
+```json
+'build: {
+  "styles": [
+    "src/style.css",
+    "node_modules/bootstrap/dist/css/bootstrap.min.css"
+  ]
+}
+```
+## SPA
+- index.html
+```html
+<app-root>Loading...</app-root>
+```
+
+```script
+AppComponent
+  @Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: ['./app.component.css']
+  })
+```  
+
+Quando a aplicação é executada bundles são criados.
+
+main.ts -> AppModule -> AppComponent -> selector: app-root -> index.html 
+
+## Component
+- Geralmente o nome da pasta se confunde com o nome do componente. *folder name = component name*  
+- O componente é uma classe *typescript*.  
+- O modificador *export* é utilizado para que o componente possa ser utilizado fora do arquivo.
+- O nome do *selector* precisa ser único.
+- ng generate
+```cmd
+ng generate component nome-do-componente
+ng g c nome-do-componente (forma sucinta)
+```
+- Dentro do decorator *@Component* é possível utilizar HTML inline através do **template**, cuidado para não confundir com o **templateUrl**. O código O código
+HTML pode vir inserido na interpolação de string. 
+- **Importante**: dentro do decorator *@Component* podemos omitir o *selector* e o *style* mas o template é obrigatório.
+
+## Módulos
+- Os *modules* são responsáveis por criar *bundles*, ou seja, empacotar arquivos entre eles os componentes.
+- *bootstrap* - indica o que será executado na inicialização do serviço.
+- **Obs.:** O angular não faz escaneamento dos componentes criados, necessita que façamos import de forma explícita.
 
