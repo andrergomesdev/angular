@@ -117,8 +117,19 @@ ng g c nome-do-componente (forma sucinta)
 HTML pode vir inserido na interpolação de string. 
 - **Importante**: dentro do decorator *@Component* podemos omitir o *selector* e o *style* mas o template é obrigatório.
 
+### Selector
+No *selector* é possível identificá-lo de formas diferentes. Caso o nome esteja entre colchetes [] ele deixa de ser um elemento e passa a ser referenciado, por exemplo:  
+```html
+<div app-users></div>
+```
+Ou ainda ser referenciado dessa forma '.app-servers' e ser identificado como uma classe:  
+```html
+<div class="app-users"></div>
+```
+Embora para componentes a representação de elemento seja a mais usual.  
+
 ## Módulos
 - Os *modules* são responsáveis por criar *bundles*, ou seja, empacotar arquivos entre eles os componentes.
 - *bootstrap* - indica o que será executado na inicialização do serviço.
-- **Obs.:** O angular não faz escaneamento dos componentes criados, necessita que façamos import de forma explícita.
+- **Obs.:** Angular não faz escaneamento dos componentes criados, necessita que façamos import de forma explícita.
 
